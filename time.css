@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Calibri", sans-serif;
+  width: 100wv;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #333333;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+
+  color: #fff;
+
+  border-radius: 20px;
+}
+
+.back {
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 150px;
+  height: 40px;
+
+  background-color: rgba(95, 158, 160, 0.5);
+
+  top: 0;
+  left: 0;
+  margin: 30px 0px 0px 5%;
+
+  animation: 0.25s fromTop ease-in-out;
+}
+
+.time {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  min-width: 270px;
+  width: 90%;
+  aspect-ratio: 5/1;
+
+  font-size: 15vw;
+
+  background-color: rgba(95, 158, 160, 0.5);
+
+  border-radius: 20px;
+
+  animation: 0.25s fromBottom ease-in-out;
+}
+
+@keyframes fromBottom {
+  from {
+    transform: translateY(200%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromTop {
+  from {
+    transform: translateY(-400%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.back > .arrow {
+  position: absolute;
+
+  transform: translateX(-200%);
+  opacity: 0;
+
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+.back:hover > .arrow {
+  transform: translateX(-150%);
+  opacity: 1;
+}
+
+.back > .content {
+  position: absolute;
+
+  transform: translateX(0);
+  transition: transform 0.25s ease-in-out;
+}
+
+.back:hover > .content {
+  transform: translateX(20%);
+}
