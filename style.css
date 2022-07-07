@@ -88,9 +88,10 @@ a {
   position: relative;
   height: calc(45px * 2);
 
+  /* ! Wird nicht von Firefox unterstützt */
   backdrop-filter: blur(10px) saturate(160%);
   -webkit-backdrop-filter: blur(10px) saturate(160%);
-  -moz-backdrop-filter: blur(10px) saturate(160%);
+
   background-color: rgba(95, 158, 160, 0.1);
 
   display: flex;
