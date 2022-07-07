@@ -64,16 +64,14 @@ function updateTheme() {
     "./assets/icons_" + iconTheme + "/theme.png";
 }
 
-window.addEventListener("load", () => {
-  getTheme();
+getTheme();
 
-  el_link.forEach((element) => {
-    element.querySelector("img").src =
-      "./assets/icons_" + theme + "/" + element.className + ".png";
-  });
-
-  el_changeTheme.querySelector("img").src =
-    "./assets/icons_" + iconTheme + "/theme.png";
-
-  el_changeTheme.addEventListener("click", updateTheme);
+el_link.forEach((element) => {
+  element.querySelector("img").src =
+    "./assets/icons_" + theme + "/" + element.className + ".png";
 });
+
+el_changeTheme.querySelector("img").src =
+  "./assets/icons_" + iconTheme + "/theme.png";
+
+el_changeTheme.addEventListener("click", updateTheme);
