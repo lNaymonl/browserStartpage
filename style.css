@@ -305,7 +305,7 @@ a {
     left: 20px;
 
     color: #fff;
-    opacity: 0.5;
+    opacity: 0.75;
   }
 
   header > .searchForm > .inputWrapper .searchInput:focus {
