@@ -176,8 +176,6 @@ a {
   border-radius: var(--border-radius);
 
   font-size: 300%;
-
-  animation: 0.3s fromTop alternate ease-out;
 }
 
 .links {
@@ -186,8 +184,6 @@ a {
   background-color: rgba(95, 158, 160, 0.1);
 
   border-radius: var(--border-radius);
-
-  animation: 0.3s fromBottom alternate ease-out;
 }
 
 @keyframes fromTop {
@@ -278,6 +274,9 @@ a {
   main {
     gap: 10%;
     height: 100%;
+
+    animation: 0.5s fromBottom alternate ease-out;
+    animation-delay: 0.25s;
   }
 
   header {
@@ -286,6 +285,8 @@ a {
 
     align-items: center;
     justify-content: space-between;
+
+    animation: 0.3s fromTop alternate ease-out;
   }
 
   .searchForm {
@@ -347,11 +348,19 @@ a {
     gap: var(--gap-large);
 
     align-items: center;
+
+    animation: 0.5s fromTop alternate ease-out;
   }
 
   .searchForm {
     width: var(--width-medium);
     height: 35px;
+  }
+
+  .db-click-open {
+    position: absolute;
+
+    opacity: 0;
   }
 
   .searchInput {
@@ -369,6 +378,9 @@ a {
     gap: var(--gap-large);
 
     align-items: center;
+
+    animation: 0.5s fromBottom alternate ease-out;
+    animation-delay: 0.25s;
   }
 
   .time {
@@ -401,11 +413,19 @@ a {
     gap: var(--gap-large);
 
     align-items: center;
+
+    animation: 0.5s fromTop alternate ease-out;
   }
 
   .searchForm {
     width: var(--width-small);
     height: 35px;
+  }
+
+  .db-click-open {
+    position: absolute;
+
+    opacity: 0;
   }
 
   .searchInput {
@@ -420,6 +440,9 @@ a {
 
   main {
     gap: var(--gap-small);
+
+    animation: 0.5s fromBottom alternate ease-out;
+    animation-delay: 0.25s;
   }
 
   .time {
