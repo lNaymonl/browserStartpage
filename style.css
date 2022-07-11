@@ -1,3 +1,14 @@
+:root {
+  --border-radius: 7.5px;
+  --border-radius-big: 20px;
+
+  --width-medium: 420px;
+  --width-small: 310px;
+
+  --gap-large: 30px;
+  --gap-small: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,19 +17,25 @@
 
 html {
   font-family: "Calibri", sans-serif;
+
   width: 100wv;
-  height: 100vh;
+  height: 100%;
 }
 
 body {
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   height: 100%;
 
-  background-image: url("./assets/background.jpeg");
+  /* width: 100vw;
+  height: 100vh; */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-image: url("./assets/background.jpeg");
 
   background-repeat: no-repeat;
   background-position: center;
@@ -27,30 +44,74 @@ body {
   overflow: hidden;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-
-  position: relative;
-
-  height: 100%;
-
-  justify-content: center;
-  align-items: center;
+header {
+  width: 100%;
 }
 
-a {
-  cursor: pointer;
-  text-decoration: none;
+header > .searchForm > .inputWrapper {
+  border-radius: var(--border-radius);
+  padding: 2.5px;
 
-  color: white;
-}
-
-.changeTheme {
   display: flex;
   flex-direction: row;
+  align-items: center;
 
-  position: absolute;
+  background-color: rgba(95, 158, 160, 0.1);
+}
+
+header > .searchForm > .inputWrapper > button {
+  width: 30px;
+  height: 30px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+header > .searchForm > .inputWrapper > button > .searchIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.searchInput {
+  background-color: transparent;
+
+  border: none;
+
+  padding: 0;
+
+  height: 30px;
+
+  color: #fff;
+
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.searchInput::placeholder {
+  color: #fff;
+  opacity: 0.75;
+}
+
+.searchInput::-moz-placeholder {
+  color: #fff;
+  opacity: 0.75;
+}
+
+textarea:focus,
+.searchInput:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+}
+
+header .changeTheme {
+  display: flex;
+  flex-direction: row;
 
   align-items: center;
   justify-content: center;
@@ -58,12 +119,9 @@ a {
   width: 40px;
   aspect-ratio: 1;
 
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
-  -moz-backdrop-filter: blur(10px) saturate(160%);
   background-color: rgba(95, 158, 160, 0.1);
 
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 
   top: 0;
   right: 0;
@@ -84,13 +142,28 @@ a {
   aspect-ratio: 1;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+
+  color: white;
+}
+
 .time {
   position: relative;
   height: calc(45px * 2);
-
-  /* ! Wird nicht von Firefox unterstützt */
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
 
   background-color: rgba(95, 158, 160, 0.1);
 
@@ -100,7 +173,7 @@ a {
   align-items: center;
   justify-content: center;
 
-  border-radius: 20px;
+  border-radius: var(--border-radius);
 
   font-size: 300%;
 
@@ -110,11 +183,9 @@ a {
 .links {
   position: relative;
 
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
   background-color: rgba(95, 158, 160, 0.1);
 
-  border-radius: 20px;
+  border-radius: var(--border-radius);
 
   animation: 0.3s fromBottom alternate ease-out;
 }
@@ -192,10 +263,34 @@ a {
   opacity: 100%;
 }
 
+/* big screen */
 @media only screen and (min-width: 700px) {
   main {
-    /* margin-top: -100px; */
     gap: 10%;
+    height: 100%;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .searchForm {
+    margin-left: 10px;
+  }
+
+  .searchInput {
+    width: 0;
+    transition: width 0.5s ease-out, padding-left 0.25s ease-out;
+    box-sizing: border-box;
+  }
+
+  header > .searchForm > .inputWrapper .searchInput:focus {
+    width: 250px;
+    padding-left: 5px;
   }
 
   .links {
@@ -217,13 +312,48 @@ a {
   }
 }
 
+/* medium screen */
 @media only screen and (max-width: 700px) and (min-width: 430px) {
+  body {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--gap-large);
+  }
+
+  header {
+    display: flex;
+    flex-direction: column-reverse;
+
+    gap: var(--gap-large);
+
+    align-items: center;
+  }
+
+  .searchForm {
+    width: var(--width-medium);
+    height: 35px;
+  }
+
+  .searchInput {
+    width: 100%;
+    height: 30px;
+
+    padding-left: 5px;
+  }
+
+  .changeTheme {
+    align-self: flex-end;
+  }
+
   main {
-    gap: 20px;
+    gap: var(--gap-large);
+
+    align-items: center;
   }
 
   .time {
-    width: 100%;
+    width: var(--width-medium);
   }
 
   .links {
@@ -236,13 +366,45 @@ a {
   }
 }
 
+/* little screen */
 @media only screen and (max-width: 430px) {
+  body {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--gap-small);
+  }
+
+  header {
+    display: flex;
+    flex-direction: column-reverse;
+
+    gap: var(--gap-large);
+
+    align-items: center;
+  }
+
+  .searchForm {
+    width: var(--width-small);
+    height: 35px;
+  }
+
+  .searchInput {
+    width: 100%;
+
+    padding-left: 5px;
+  }
+
+  .changeTheme {
+    align-self: flex-end;
+  }
+
   main {
-    gap: 50px;
+    gap: var(--gap-small);
   }
 
   .time {
-    width: 100%;
+    width: 310px;
   }
 
   .links {
@@ -253,4 +415,10 @@ a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.bg-blur {
+  /* ! Wird nicht von Firefox unterstützt */
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
 }

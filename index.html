@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,12 +13,38 @@
     />
   </head>
   <body>
-    <div class="changeTheme">
-      <img src="" alt="theme" />
-    </div>
+    <header>
+      <form onsubmit="onSearchSubmit(event)" class="searchForm">
+        <div class="inputWrapper bg-blur">
+          <button type="button" id="inputIcon" class="inputIcon">
+            <img
+              src="./assets/icon_search.png"
+              alt="icon_search"
+              class="searchIcon"
+            />
+          </button>
+
+          <input
+            type="url"
+            name="searchInput"
+            id="searchInput"
+            class="searchInput"
+            placeholder="Suchen..."
+            required
+            autocomplete="off"
+            autofocus="on"
+            autocapitalize="off"
+          />
+        </div>
+      </form>
+      <div class="changeTheme bg-blur">
+        <img src="" alt="theme" />
+      </div>
+    </header>
+
     <main>
-      <a href="./time.html" class="time"></a>
-      <div class="links">
+      <a href="./time.html" class="time bg-blur"></a>
+      <div class="links bg-blur">
         <ul>
           <li class="youtube">
             <a href="https://www.youtube.com/feed/subscriptions">

@@ -4,6 +4,41 @@ const el_link = document.querySelectorAll(".links > ul > li");
 
 const el_changeTheme = document.querySelector(".changeTheme");
 
+const el_searchForm = document.querySelector("#searchbar");
+const el_searchIcon = document.querySelector("#inputIcon");
+const el_searchInput = document.querySelector("#searchInput");
+
+const isValidURL = (string = "") => {
+  var res = string.match(
+    /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+  );
+  if (res != null) {
+    return true;
+  }
+  return false;
+};
+
+function onSearchSubmit(event) {
+  event.preventDefault();
+  let inputValue = el_searchInput.value;
+  if (isValidURL(inputValue)) {
+    if (!inputValue.startsWith("http://")) {
+      inputValue = "http://" + inputValue;
+    } else if (!inputValue.startsWith("http://www.")) {
+      inputValue = "http://www." + inputValue;
+    }
+    window.location = inputValue;
+  } else {
+    window.location =
+      "https://www.google.com/search?q=" + inputValue.replace(" ", "+");
+  }
+  console.log(el_searchInput.value);
+}
+
+el_searchIcon.addEventListener("click", (e) => {
+  el_searchInput.focus();
+});
+
 let theme;
 let iconTheme;
 
