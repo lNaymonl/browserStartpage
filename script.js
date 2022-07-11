@@ -4,7 +4,7 @@ const el_link = document.querySelectorAll(".links > ul > li");
 
 const el_changeTheme = document.querySelector(".changeTheme");
 
-const el_searchForm = document.querySelector("#searchbar");
+const el_searchForm = document.querySelector(".searchForm");
 const el_searchIcon = document.querySelector("#inputIcon");
 const el_searchInput = document.querySelector("#searchInput");
 
@@ -36,6 +36,10 @@ function onSearchSubmit(event) {
 }
 
 el_searchIcon.addEventListener("click", (e) => {
+  el_searchInput.focus();
+});
+
+window.addEventListener("dblclick", () => {
   el_searchInput.focus();
 });
 
@@ -110,3 +114,13 @@ el_changeTheme.querySelector("img").src =
   "./assets/icons_" + iconTheme + "/theme.png";
 
 el_changeTheme.addEventListener("click", updateTheme);
+
+// window.localStorage.removeItem("been_here");
+
+if (!checkCacheObj("been_here") || getCacheObj("been_here") == false) {
+  let dbclick = document.createElement("div");
+  el_searchForm.append(dbclick);
+  dbclick.className = "db-click-open";
+  dbclick.textContent = "↑-doubleclick anywhere to open";
+  setCacheObj("been_here", true);
+}

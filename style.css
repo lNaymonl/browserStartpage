@@ -263,6 +263,16 @@ a {
   opacity: 100%;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 /* big screen */
 @media only screen and (min-width: 700px) {
   main {
@@ -286,6 +296,16 @@ a {
     width: 0;
     transition: width 0.5s ease-out, padding-left 0.25s ease-out;
     box-sizing: border-box;
+  }
+
+  .db-click-open {
+    position: absolute;
+
+    top: 50px;
+    left: 20px;
+
+    color: #fff;
+    opacity: 0.5;
   }
 
   header > .searchForm > .inputWrapper .searchInput:focus {
